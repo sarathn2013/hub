@@ -11,7 +11,7 @@
 module.exports = (robot) ->
 
    robot.hear /hi/i, (msg) ->
-     msg.send "hi pavan how are you"
+     msg.send "hello"
   #
   # robot.respond /open the (.*) doors/i, (msg) ->
   #   doorType = msg.match[1]
