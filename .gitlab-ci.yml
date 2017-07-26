@@ -6,7 +6,7 @@ test:1.1:
   services:
   - docker:dind
   before_script:
-  - docker info
+  - sudo docker info
   stage: build
   only:
   - master
