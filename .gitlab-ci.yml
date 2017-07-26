@@ -6,6 +6,7 @@ test:1.1:
   services:
   - docker:dind
   before_script:
+  - apt-get update && apt-get install -y sudo
   - sudo docker info
   stage: build
   only:
