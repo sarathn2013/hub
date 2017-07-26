@@ -1,16 +1,17 @@
-before_script:
- - docker info
- 
- 
-stages:
- - build
- - deploy
-
-
-build_docker_image:
-    stage: build
-    script: 
-        - docker login registry.gitlab.com -u testing -p $gitlab_personal_token
-        - docker build -t registry.gitlab.com/nidra.sarath/hubot .
-        - docker push registry.gitlab.com/nidra.sarath/hubot
+test:1.1:
+  image: docker:latest 
+  variables:
+    DOCKER_DRIVER: overlay
+    DOCKER_HOST: tcp://localhost:2375
+  services:
+  - docker:dind
+  before_script:
+  - docker info
+  stage: build
+  only:
+  - master
+  script:
+    - docker login registry.gitlab.com -u testing -p $gitlab_personal_token
+    - docker build -t registry.gitlab.com/nidra.sarath/hubot .
+    - docker push registry.gitlab.com/nidra.sarath/hubot
 
