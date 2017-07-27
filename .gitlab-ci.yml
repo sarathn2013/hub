@@ -2,7 +2,6 @@ test:1.1:
   image: docker:latest 
   variables:
     DOCKER_DRIVER: overlay
-    DOCKER_HOST: tcp://localhost:2375
   services:
   - docker:dind
   before_script:
