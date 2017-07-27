@@ -18,7 +18,6 @@ ENV HOME /home/yeoman
 USER yeoman
 WORKDIR /home/yeoman
 
-RUN git clone https://github.com/sarathn2013/slack-hubot.git hubot
-RUN cd hubot; npm install
+RUN npm install
 
 CMD cd hubot; bin/hubot --adapter slack
