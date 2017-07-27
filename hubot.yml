@@ -20,8 +20,10 @@ spec:
     spec:
       serviceAccount: kubectl
       containers:
-      - image: sarathn2013/slack-hubot:latest 
+      - image: registry.gitlab.com/nidra.sarath/hubot
         name: kubectl-slackbot
         env:
         - name: HUBOT_SLACK_TOKEN
           value: xoxb-218005899347-DlRwTJdKh2ICV37Uwcdzcz60
+      imagePullSecrets:
+       - name: hubotregsecret
